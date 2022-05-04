@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="estilos.css"/>
+	<title>Programas Estructura de Datos</title>
+</head>
+<body>
+	<ul class="menu">
+			<li><a href="index.html">Inicio</a></li>
+			<li><a href="Colas.html">Colas</a></li>
+			<li><a href="Pilas.html">Pilas</a></li>
+			<li><a href="Listas.html">Listas</a></li>
+			<li><a href="Arboles.html">Arboles</a></li>
+			<li><a href="Grafos.html">Grafos</a></li>
+		</ul>
+	<div class="warp">
+		<article>
+			<h1>
+				<p>Este es el codigo de Colas...</p>
+<textarea name="Area" rows="98" cols="100" >
+//incluimos las librerias para la realizacion de las COLAS
+#include<stdio.h> 
+#include<stdlib.h>
+#include<conio.h>
+
+struct Nodo{
+	int dato;
+	Nodo *siguiente;
+};
+
+// Prototipos de funcion
+void insertarCola(Nodo *&,Nodo *&,int);
+bool cola_vacia(Nodo *);
+void suprimirCola(Nodo *&,Nodo *&,int &);
+
+int main(){
+	Nodo *frente = NULL;
+	Nodo *fin = NULL;
+	
+	int dato, opcion;
+	while(opcion != 0){
+	
+	printf("digite un numero: ");
+	scanf("%d",&dato);
+	insertarCola(frente,fin,dato);
+	printf("deseas agregar otro elemento a la cola? 1: si, 0: no\n tu opcion: ");
+	scanf("%d",&opcion);
+}
+	//eliminar los elementos de la cola
+	printf("quitando los nodos de la cola...\n");
+	while(frente != NULL){
+		suprimirCola(frente,fin,dato);
+		
+		if(frente != NULL){
+			printf("%d,",dato);
+		}
+		else{
+			printf("%d.",dato);
+		}
+	}
+	
+	
+	
+	getch();
+	return 0;
+}
+
+//Funcion para insertar elementos
+
+void insertarCola(Nodo *&frente,Nodo *&fin, int n){
+	Nodo *nuevo_nodo = new Nodo();
+	
+	nuevo_nodo->	dato = n;
+	nuevo_nodo->siguiente = NULL;
+	
+	if(cola_vacia(frente)){
+		frente = nuevo_nodo;
+	}
+	else{
+		fin->siguiente = nuevo_nodo;
+	}
+	
+	fin = nuevo_nodo;
+	
+	printf("elemento %d insertado a cola correctamente\n",n);
+}
+
+
+//Funcion para determinar si la cola esta vacia o no
+
+bool cola_vacia(Nodo *frente){
+	//esta linea es mas sencilla 
+	return(frente == NULL)? true : false;
+	
+/*	if(frente == NULL){
+		return true;		este codigo abarca mas lineas de codigo
+	}else{
+		return false;
+	}
+*/
+}
+//funcion para eliminar los elementos de la cola
+void suprimirCola(Nodo *&frente,Nodo *&fin,int &n){
+	n = frente->dato;
+	Nodo *aux = frente;
+	
+	if(frente == fin){
+		frente = NULL;
+		fin = NULL;
+		}
+		else{
+			frente = frente->siguiente;
+		}
+		delete aux;
+	}
+</textarea>
+
+<h1>
+	<p>Video de Colas</p>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/LjFTKZcizU8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</h1>
+	<a href="https://drive.google.com/file/d/1bUn8PxF9jwxZQyKIpMeXFngAV_v-I-ev/view?usp=sharing" class="a">Link para Descargar COLAS Programa</a>
+
+			</div>
+		</article>
+	</div>
+
+</body>
+</html>

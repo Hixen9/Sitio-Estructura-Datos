@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="estilos.css"/>
+	<title>Programas Estructura de Datos</title>
+</head>
+<body>
+	<ul class="menu">
+			<li><a href="index.html">Inicio</a></li>
+			<li><a href="Colas.html">Colas</a></li>
+			<li><a href="Pilas.html">Pilas</a></li>
+			<li><a href="Listas.html">Listas</a></li>
+			<li><a href="Arboles.html">Arboles</a></li>
+		 	<li><a href="Grafos.html">Grafos</a></li>
+		</ul>
+	<div class="warp">
+		<article>
+			<h1>
+				<p>Este es el codigo de Arboles...</p>
+			</h1>
+<textarea name="Area" rows="60" cols="100" >
+	#include<iostream>
+#include<conio.h>
+#include<stdlib.h>
+using namespace std;
+
+struct Nodo{
+	int dato;
+	Nodo *der;
+	Nodo *izq;
+};
+
+void menu();
+Nodo *crearNodo(int);
+void insertarNodo(Nodo *&arbol, int);
+void mostrarArbol(Nodo *,int);
+
+Nodo *arbol = NULL;
+
+int main (){
+	menu();
+	
+	getch();
+	return 0;
+}
+//Función del Menú
+void menu(){
+	int dato, op, contador=0;
+	
+	
+	do{
+			cout<<"\t\n Menu"<<endl;
+		cout<<"1. Poner un nodo nuevo"<<endl;
+		cout<<"2. Mostrar el arbol"<<endl;
+		cout<<"3. SALIR"<<endl;
+		cout<<"Ingresa la opcion deseada: ";
+		cin>>op;
+		system("cls");
+		switch(op){
+			case 1: cout<<" Digite un numero: ";
+			cin>>dato;
+			insertarNodo(arbol,dato);
+			break;
+			case 2: cout<<"Mostrando arbol: \n \n";
+			    mostrarArbol(arbol,contador);  
+			    cout<<"\nFin del Arbol: \n \n";
+			break;
+			
+		}
+		
+	}while(op != 3);
+}
+
+//Creación del nuevo nodo
+
+Nodo *crearNodo(int n){
+
+    Nodo *nuevo_nodo = new Nodo();
+    nuevo_nodo->dato = n;
+    nuevo_nodo->der = NULL;
+    nuevo_nodo->izq = NULL;
+    
+    return nuevo_nodo;
+}
+
+//Función que inserta un nodo en el arbol
+
+void insertarNodo(Nodo *&arbol,int n){
+	if(arbol == NULL){
+		Nodo *nuevo_nodo = crearNodo(n);
+		arbol = nuevo_nodo;
+	}
+	else{
+		int valorRaiz = arbol->dato;
+		if(n < valorRaiz){
+			insertarNodo(arbol->izq,n);
+		}
+		else{
+			insertarNodo(arbol->der,n);
+		}
+	}
+}
+
+//Función que muestrar el árbol
+void mostrarArbol(Nodo *arbol,int cont){
+	if(arbol == NULL){
+	}
+	else{
+		mostrarArbol(arbol->der, cont+1);
+		for(int i=0;i<cont;i++){
+			cout<< "  ";
+		}
+		cout<<arbol->dato<<endl;
+		mostrarArbol(arbol->izq,cont+1);	
+	}
+}
+
+</textarea>
+<h1>
+	<p>Video de Arboles</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4RuNrZ92lNU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	
+</h1>
+		<a href="https://drive.google.com/file/d/1O1UmJndWC0bgJElI4JX2uwfT-jTORwPD/view?usp=sharing">Link para Descargar ARBOLES Programa</a>
+	</div>
+
+</body>
+</html>

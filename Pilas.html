@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="estilos.css"/>
+	<title>Programas Estructura de Datos</title>
+</head>
+<body>
+	<ul class="menu">
+			<li><a href="index.html">Inicio</a></li>
+			<li><a href="Colas.html">Colas</a></li>
+			<li><a href="Pilas.html">Pilas</a></li>
+			<li><a href="Listas.html">Listas</a></li>
+			<li><a href="Arboles.html">Arboles</a></li>
+			<li><a href="Grafos.html">Grafos</a></li>
+		</ul>
+	<div class="warp">
+		<article>
+			<h1>
+				<p>Este es el codigo de Pilas...</p>
+			</h1>
+<textarea name="Area" rows="60" cols="100" >
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+
+struct Nodo{
+	int dato;
+	Nodo *siguiente;
+};
+
+void agregarPila(Nodo *&, int);
+void sacarPila(Nodo*&, int &);
+
+int main(){
+	Nodo *pila = NULL;
+	int Dato;
+	
+	printf("\nagregar elemento: ");
+	scanf("%d",&Dato);
+	agregarPila(pila,Dato);
+	
+	printf("\nagregar elemento: ");
+	scanf("%d",&Dato);
+	agregarPila(pila,Dato);
+	
+	printf("\nagregar elemento: ");
+	scanf("%d",&Dato);
+	agregarPila(pila,Dato);
+	
+	while(pila!=NULL){
+		sacarPila(pila,Dato);
+		if(pila!=NULL){
+			printf("%d,",Dato);
+		}else{
+			printf("%d.",Dato);
+		}
+	}
+	
+	}
+
+void agregarPila(Nodo *&pila,int n){
+	Nodo *nuevo_nodo = new Nodo();
+	nuevo_nodo->dato = n;
+	nuevo_nodo->siguiente = pila;
+	pila = nuevo_nodo;
+	
+	printf("elemento %d se agrego correctamente\n", n);
+}
+
+void sacarPila(Nodo *&pila,int &n){
+	Nodo *aux = pila;
+	n = aux->dato;
+	pila = aux->siguiente;
+	delete aux;	
+}
+</textarea>
+<h1>
+	<p>Video de Pilas</p>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/5AnYCfjCzC8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	
+</h1>
+<a href="https://drive.google.com/file/d/1iRSh6t60mbfSQXc3oRt3b3CsNHKM9lIV/view?usp=sharing" class="a">Link para Descargar PILAS Programa</a>
+
+			</div>
+		</article>
+	</div>
+</body>
+</html>
